@@ -15,15 +15,23 @@
     console.log(pattern.test(str));
     console.log(location.search)
 
+    const ddd = { "aaa": "aaa", "bbb": "bbb" }
+
     const aaa = [{ "aa": "dfads" }, "bbb", "ccc"]
     const bbb = ["2222", "bb33333b", "c3333cc"]
 
+    const boolean_demo1 = !true
+
     let demoJson = {
         ...aaa, content: '123123'
-        , ...bbb
+        , ...bbb,
+        ddd,
+        ...ddd,
+        boolean_demo1
     }
 
     console.log(demoJson)
+
 
     let search = new URLSearchParams(location.search)
 
