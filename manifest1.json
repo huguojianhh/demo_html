@@ -1,0 +1,66 @@
+{
+	"name": "Short133122",
+	"short_name": "Shorts133213",
+	"icons": [
+		{
+			"src": "./images/logo-192.jpg",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "./images/logo-512.jpg",
+			"sizes": "512x512",
+			"type": "image/png"
+		},
+		{
+			"src": "./images/logo-512.jpg",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any maskable"
+		}
+	],
+	"display_Override": [
+		"window-controls-overlay"
+	],
+	"edge_side_panel": {
+		"preferred_width": 496
+	},
+	"id":"/foo",
+	"start_url": "/acaacbaaaaaaaaaaaaaQaIsVlFaaahacaaa/aa",
+	"display": "standalone",
+	"background_color": "#fff",
+	"theme_color": "#333333",
+	"related_applications": [
+		{
+			"platform": "webapp",
+			"url": "https://app.example.com/manifest.json"
+		}
+	],
+	"screenshots": [
+		{
+			"src": "./images/1.png",
+			"sizes": "330x587",
+			"type": "image/png"
+		},
+		{
+			"src": "./images/2.png",
+			"sizes": "330x587",
+			"type": "image/png"
+		},
+		{
+			"src": "./images/3.png",
+			"sizes": "330x587",
+			"type": "image/png"
+		},
+		{
+			"src": "./images/4.png",
+			"sizes": "330x587",
+			"type": "image/png"
+		},
+		{
+			"src": "./images/5.png",
+			"sizes": "330x587",
+			"type": "image/png"
+		}
+	]
+}

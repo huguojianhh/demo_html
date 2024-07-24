@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+#overlay img {
+  max-width: 80%;
+  max-height: 80%;
+  transition: transform 0.5s;
+}
+
+#overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#overlay.show img {
+  transform: scale(1.05);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+#app {
+  background: black;
+  width: 100%;
+  max-width: 500px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-top: 138px;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#app {
+  background: linear-gradient(to right, rgb(201, 75, 75), rgb(75, 19, 79));
+  background-size: 200% 200%;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+.app-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.app-info-logo img {
+  width: 88px;
+  border-radius: 80px;
+}
+
+.Title {
+  animation: uk-text-shadow-glitch 0.65s cubic-bezier(1, -2.91, 0, 3.79) 0s
+    infinite normal both running;
+}
+@keyframes uk-text-shadow-glitch {
+  0% {
+    text-shadow: none;
+  }
+  25% {
+    text-shadow: -2px -2px 0 #ff0048, 2px 2px 0 #3234ff;
+  }
+  50% {
+    text-shadow: 2px -2px 0 #ff0048, -2px 2px 0 #3234ff;
+  }
+  75% {
+    text-shadow: -2px 2px 0 #ff0048, 2px -2px 0 #3234ff;
+  }
+  100% {
+    text-shadow: 2px 2px 0 #ff0048, -2px -2px 0 #3234ff;
+  }
+}
+@keyframes uk-flicker {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+    transform: scale(0.8);
+  }
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.app-download-btn {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  background-image: linear-gradient(
+    270deg,
+    rgba(100, 181, 239, 0) 48.44%,
+    rgba(255, 255, 255, 0.314) 75.52%,
+    rgba(100, 181, 239, 0) 100%
+  );
+  background-repeat: no-repeat;
+  animation: bg-move linear 3s infinite;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 40px;
+}
+.app-download-btn img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+@-webkit-keyframes bg-move {
+  0% {
+    background-position: -500px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+@keyframes bg-move {
+  0% {
+    background-position: -500px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+#install {
+  font-size: 20px;
+  font-weight: bold;
+}

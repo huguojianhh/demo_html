@@ -1,0 +1,287 @@
+.common_header {
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    box-shadow: 0px 2px 10px rgba(16, 16, 16, 0.1);
+    position: fixed;
+    /* top: 0; */
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    color: #000;
+    z-index: 10;
+    display: flex;
+
+
+    .home_brand {
+        margin-left: 15px;
+    }
+
+    .common_header_main_title {
+        width: 108px;
+        height: 25px;
+        margin: 20px auto 0;
+        font-size: 10px;
+        text-align: center;
+
+        img {
+            /* width: 106px; */
+            margin-bottom: 7px;
+
+            overflow-clip-margin: content-box;
+            overflow: clip;
+
+            /* width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            position: relative;
+            top: -12px;
+            margin-right: 60px; */
+        }
+
+        img,
+        svg {
+            vertical-align: middle;
+        }
+    }
+
+
+    .common_header_add_to_screen_btn {
+        cursor: pointer;
+        width: 90px;
+        height: 30px;
+        text-align: center;
+        line-height: 28px;
+        font-size: 13px;
+        border-radius: 5px;
+        margin: 15px 10px 0 0;
+        color: #fff;
+        font-weight: bold;
+        background: linear-gradient(45.5deg, #ffb35a -1.11%, #fa46b9 68.2%);
+    }
+}
+
+.download-drawer-entry {
+    position: absolute;
+    flex-direction: column;
+    left: 0;
+    /* top: 0; */
+    width: 100%;
+    color: #fff;
+    background: rgb(62, 62, 62);
+    z-index: 99;
+    display: flex;
+
+    padding: 0 12px;
+    /* height: 110px; */
+
+    /* 当屏幕宽度小于或等于628像素时应用的样式 */
+    /* @media screen and (max-width: 628px) {
+        height: 130px;
+    } */
+
+    overflow: hidden;
+    box-sizing: border-box;
+
+
+    .icon-wrap {
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+
+        .iconfont.el-icon-plus {
+            font-size: 20px;
+        }
+
+
+    }
+
+    /* .el-icon-circle-close:before {
+                    content: "\e78d";
+                } */
+
+}
+
+
+.download-drawer-entry span {
+    outline: none;
+    font-size: 17px;
+
+    @media screen and (max-width: 411px) {
+        font-size: 15px;
+    }
+}
+
+
+.flex_head {
+    display: flex;
+    /* justify-content: space-around; */
+    justify-content: space-between;
+}
+
+
+.flex-item_1 {
+    flex: 0.2;
+    /* 这将使每个项目等分容器的空间 */
+
+    align-items: center;
+    /* 你也可以使用 flex: 1 1 0; 来明确设置 flex-grow, flex-shrink, 和 flex-basis */
+    /* 可选，用于可视化边界 */
+    /* padding: 20px; */
+    padding-top: 30px;
+    /* 可选，增加内边距 */
+    /* 可选，确保边框和内边距不会增加元素的宽度 */
+}
+
+
+.flex-item {
+    flex: 1;
+    /* 这将使每个项目等分容器的空间 */
+
+    align-items: center;
+    /* 你也可以使用 flex: 1 1 0; 来明确设置 flex-grow, flex-shrink, 和 flex-basis */
+    /* 可选，用于可视化边界 */
+    padding-top: 50px;
+    padding-left: 10px;
+    /* 可选，增加内边距 */
+    /* 可选，确保边框和内边距不会增加元素的宽度 */
+}
+
+
+.iconfont,
+.el-icon-circle-close {
+    font-size: 24px;
+}
+
+
+.el-icon-circle-close {
+    margin-top: 5px;
+    width: 32px;
+    height: 32px;
+    background: url('../images/close.png');
+}
+
+
+.foot_flex {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.download_btn {
+    cursor: pointer;
+    text-align: center;
+    line-height: 45px;
+    width: 130px;
+    height: 45px;
+    background-color: darkorange;
+    border-radius: 4px;
+    margin-left: 10px;
+    color: #fff;
+}
+
+#overlay {
+    z-index: 100000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+#apple_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    /* transition: opacity 0.5s, visibility 0.5s; */
+}
+
+#overlay img {
+    max-width: 100%;
+    max-height: 100%;
+    transition: transform 0.5s;
+}
+
+#apple_overlay img {
+    max-width: 80%;
+    max-height: 80%;
+    transition: transform 0.5s;
+}
+
+#overlay.show,
+#apple_overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#overlay.show,
+#apple_overlay.show img {
+    transform: scale(1.05);
+}
+
+#subscription-modal {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+.modal-content {
+    margin: 20px 0;
+    background: linear-gradient(135deg, #6e8efb, #a877e354);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 70%;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.modal-text {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.subscribe-btn {
+    background-color: #fff;
+    color: #6e8efb;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.subscribe-btn:hover {
+    background-color: #6e8efb;
+    color: #fff;
+}

@@ -1,0 +1,33 @@
+<html>
+
+<head></head>
+<link rel="manifest" href="./manifest1.json">
+
+<body>
+    <div style="width: 100px; word-break: break-all; "><a
+            href="https://baidu.com">123123123123121233121aaaaaaaaaaaaaaaaaaaaaaaaaa23</a></div>
+</body>
+<script>
+    var pattern = /^(?!.*\b(cid=|uuid=|subId=)).*$/,
+        // var pattern = /.*\b(cid|uuid|subId)=/,
+        str = 'uu2id=123123&uu123id=123123';
+    console.log(str);
+    console.log(pattern.test(str));
+    console.log(location.search)
+
+    const aaa = [{ "aa": "dfads" }, "bbb", "ccc"]
+    const bbb = ["2222", "bb33333b", "c3333cc"]
+
+    let demoJson = {
+        ...aaa, content: '123123'
+        , ...bbb
+    }
+
+    console.log(demoJson)
+
+    let search = new URLSearchParams(location.search)
+
+    console.log(search.get('id'))
+</script>
+
+</html>

@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'icons';
+  src:
+    url('icons.ttf?n18dfa') format('truetype'),
+    url('icons.woff?n18dfa') format('woff'),
+    url('icons.svg?n18dfa#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="_icon-"]:before, [class*=" _icon-"]:before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icons' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+._icon-arrow_back:before {
+  content: "\e900";
+}
+._icon-arrow_down:before {
+  content: "\e901";
+}
+._icon-arrow_forward:before {
+  content: "\e902";
+}
+._icon-expand_more:before {
+  content: "\e903";
+}
+._icon-info_black:before {
+  content: "\e904";
+}
+._icon-more_vert_black:before {
+  content: "\e905";
+}
+._icon-search_black:before {
+  content: "\e906";
+}
+._icon-star_black:before {
+  content: "\e907";
+}

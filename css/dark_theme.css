@@ -1,0 +1,162 @@
+:root {
+    --white: #ffffff;
+    --review__more: #ffffff;
+    --black: #000000;
+    --black_interface: #000000;
+    --black_text: #000000;
+    --black_text_box: #000000;
+    --filter_for_black: none;
+    --gray: #333;
+    --gray_text: #333;
+    --opacity: 1;
+    --progress_bg: #e3e3e3;
+    --star-color_my: #e3e3e3;
+    --boder: #d0d0d0;
+    --primary_text: #0b57cf;
+    --primary_back: #0b57cf;
+    --light_primary_text: #a8c8fb;
+    --light_primary_back: #a8c8fb;
+    --white_text: #ffffff;
+    --gray_back: #e3e3e3;
+    --gray_text: #939393;
+    --shadow_img: #dad9d9;
+    --between: #dad9d9;
+    --other_text: #4b4b4b;
+}
+
+body {
+    background-color: var(--white)!important;
+}
+
+.header__container a {
+    color: var(--black_interface)!important;
+}
+
+.c-black {
+    color: var(--black_text)!important;
+    opacity: .9!important;
+}
+
+.c-white {
+    color: var(--white)!important;
+}
+
+.c-text {
+	font-size: 12px;
+    color: var(--other_text)!important;
+}
+
+.program__downloads-img {
+    border: 0.5mm solid var(--black)!important;
+}
+
+.program__reviews-rating {
+    filter: var(--filter_for_black)!important;
+    opacity: .7!important;
+}
+
+.program__downloads-img {
+    filter: var(--filter_for_black)!important;
+    opacity: .7!important;
+}
+
+.program__interaction .c-black, .return-policy__btn::before, .share__btn img, .complain img {
+    filter: var(--filter_for_black)!important;
+}
+.program__interaction-img{
+    opacity: .7!important;
+}
+.description__category-btn {
+    color: var(--gray)!important;
+    opacity: var(--opacity)!important;
+}
+
+.progress {
+    background: var(--progress_bg)!important;
+}
+
+
+.Stars::before {
+    background: linear-gradient( 90deg, var(--star-background) var(--percent), var(--star-color_my) var(--percent) )!important;
+    -webkit-background-clip: text!important;
+}
+
+.rating__bar span {
+    color: var(--black_text)!important;
+}
+
+
+.review__true-false a {
+    color: var(--gray_text)!important;
+}
+
+.review__true-false a {
+    border: 1px solid var(--boder)!important;
+}
+
+.review__more-box {
+    color: var(--black_text_box)!important;
+}
+
+.app-name {
+    color: var(--black_text)!important;
+}
+
+.complain {
+    background: var(--white)!important;
+}
+
+.complain a:hover {
+    background: var(--progress_bg)!important;
+}
+
+.contacts__list li a{
+    color: var(--gray_text)!important;
+}
+
+.review__more-open {
+    background: var(--review__more)!important;
+}
+
+.primary-text {
+    color: var(--primary_text)!important;
+}
+
+.primary-back {
+    background: var(--primary_back);
+}
+
+.white-text {
+    color: var(--white_text)!important;
+}
+
+/*TO VAR*/
+
+/*.donut-hole{*/
+/*    opacity: 0!important;*/
+/*}*/
+
+/*.donut-segment-2 {*/
+/*    stroke: #2f2f2f!important;*/
+/*}*/
+
+/*.donut-ring {*/
+/*    opacity: 0!important;*/
+/*}*/
+
+/*.path {*/
+/*    stroke: var(--c-grean)!important;*/
+/*}*/
+/*.pr-open {*/
+/*    background: none!important;*/
+/*    color: rgb(0 0 0)!important;*/
+/*}*/
+
+/*.program-btn.click .btn.program-install, .program-btn.click .btn.program-open {*/
+/*    background: #2f2f2f;*/
+/*}*/
+
+/*.btn.program-cancel {*/
+/*    background: none!important;*/
+/*    border: 1px solid #5d5d5d!important;*/
+/*}*/
