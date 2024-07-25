@@ -6,14 +6,50 @@
 <body>
     <div style="width: 100px; word-break: break-all; "><a
             href="https://baidu.com">123123123123121233121aaaaaaaaaaaaaaaaaaaaaaaaaa23</a></div>
+
+
+    <input type="file" id="fileInput" multiple>
+    <button onclick="uploadFiles()">上传文件</button>
 </body>
 <script>
+    function uploadFiles() {
+        const input = document.getElementById('fileInput');
+        const files = input.files; // 获取文件列表  
+
+        if (files.length === 0) {
+            alert('请选择文件！');
+            return;
+        }
+
+        // 创建一个 FormData 实例  
+        const formData = new FormData();
+
+        // 遍历所有文件并添加到 FormData 中  
+        for (let i = 0; i < files.length; i++) {
+            formData.append('files[]', files[i]); // 假设服务器端期望的字段名为 'files[]'  
+        }
+
+        // 使用 fetch 发送数据  
+        fetch('http://45.204.80.88:5558/api/file_parser', {
+            method: 'POST',
+            body: formData,
+            // 很重要！需要设置正确的 Content-Type，但当你使用 FormData 时，浏览器会自动设置  
+        })
+            .then(response => response.json()) // 假设服务器返回 JSON  
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
     var pattern = /^(?!.*\b(cid=|uuid=|subId=)).*$/,
         // var pattern = /.*\b(cid|uuid|subId)=/,
         str = 'uu2id=123123&uu123id=123123';
     console.log(str);
     console.log(pattern.test(str));
-    console.log(location.search) 
+    console.log(location.search)
 
     const ddd = { "aaa": "aaa", "bbb": "bbb" }
 
