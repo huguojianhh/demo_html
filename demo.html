@@ -3,10 +3,100 @@
 <head></head>
 <link rel="manifest" href="./manifest1.json">
 
+<style>
+    .element {
+        width: 100px;
+        height: 100px;
+        padding: 50px;
+        position: relative;
+        /* 为伪元素定位提供参照 */
+
+        background-color: transparent;
+        /* 确保背景色是透明的 */
+    }
+
+
+    .highlight-text {
+        font-size: 24px;
+        /* 设置字体大小 */
+        color: transparent;
+        /* 使文字颜色透明，以便背景色能够显示 */
+        background: linear-gradient(0deg, rgba(255, 132, 0, 0.45) 0%, rgba(255, 247, 213, 0.45) 100%);
+        /* 设置渐变背景 */
+        -webkit-background-clip: text;
+        /* 背景被裁剪为文字的前景色 */
+        background-clip: text;
+        /* 标准的background-clip属性 */
+        display: inline-block;
+        /* 确保元素是内联块元素，这样背景才能应用到文字上 */
+    }
+
+
+
+    .element::before {
+        content: '';
+        /* 必须的，即使是空内容 */
+        position: absolute;
+        /* 相对于父元素定位 */
+        top: 50%;
+        /* 垂直居中 */
+        left: 50%;
+        /* 水平居中 */
+        width: 10px;
+        /* 设置伪元素的宽度 */
+        height: 50px;
+        /* 设置伪元素的高度 */
+        /* background-color: RGBA(0, 91, 144, 1);  */
+
+        /* 设置颜色 */
+        transform: translate(-50%, -50%);
+        /* 将伪元素中心点与父元素中心点对齐 */
+        border-radius: 50px / 25px;
+        /* 设置椭圆形状 */
+        box-shadow: inset 0 0 0 5px RGBA(0, 91, 144, 1);
+    }
+
+    .element2 {
+        width: 100px;
+        height: 100px;
+        padding: 50px;
+        /* 设置内边距大小 */
+        box-shadow: inset 0 0 0 50px RGBA(0, 91, 144, 1);
+        /* 使用内阴影填充边框和内边距区域 */
+        background-color: transparent;
+        border-radius: 50%;
+        /* 设置圆角，使内阴影区域成为椭圆形 */
+        /* 确保背景色是透明的 */
+        /* border-radius: 100px / 50px;  */
+        /* 设置水平和垂直方向的半径 */
+    }
+
+    .demo1 {
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(90deg, rgba(38,122,208,0.19), rgba(0,181,255,0.19), rgba(28,101,177,0.05));
+        /* background: linear-gradient(0deg, #29F19C, #02A1F9); */
+        /* background: linear-gradient(0deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%); */
+        /* background: linear-gradient(0deg, #18C4FF, rgba(24,75,219,0)); */
+        /* background: linear-gradient(0deg, #A7DFFF, rgba(12, 247, 95, 0)); */
+        /* background: linear-gradient(0deg, #0CF75F, rgba(12,247,95,0)); */
+        border-radius: 0px 0px 0px 0px;
+    }
+</style>
+
 <body>
+
+    <span class="highlight-text">这是高亮文字</span>
+
+
+    999
+    <div class="element">
+        <!-- 内容 -->123123213啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+    </div>
     <div style="width: 100px; word-break: break-all; "><a
             href="https://baidu.com">123123123123121233121aaaaaaaaaaaaaaaaaaaaaaaaaa23</a></div>
 
+    <div class="demo1">dssddsdsdd</div>
 
     <input type="file" id="fileInput" multiple>
     <button onclick="uploadFiles()">上传文件</button>

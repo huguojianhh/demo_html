@@ -1,0 +1,37 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/modal.css" />
+
+<body>
+
+    <iframe src="https://www.7.bet"></iframe>
+
+    <div class="alert-box" v-if="showDisabedAlert">
+        <div class="close-btn">
+            <div>
+                <img src="images/btn-close.svg" />
+            </div>
+        </div>
+        <div class="content">下载次数已达上限</div>
+    </div>
+</body>
+
+<script>
+
+
+    function showAlert(message, duration = 1000 * 60 * 10) {
+        var alertBox = document.createElement('div');
+        alertBox.classList.add('alert-box');
+        alertBox.textContent = message;
+        document.body.appendChild(alertBox);
+
+        setTimeout(function () {
+            alertBox.classList.add('hide');
+            setTimeout(function () {
+                document.body.removeChild(alertBox);
+            }, 1000); // 等待过渡效果完成后移除元素
+        }, duration);
+    }
+</script>
+
+</html>

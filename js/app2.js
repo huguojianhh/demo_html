@@ -106,9 +106,11 @@ function createModal() {
 	subscribeBtn.onclick = async function () {
 		// 这里写你的订阅点击逻辑
 		console.log('Subscribe button clicked!');
-		const serviceWorker = await navigator.serviceWorker.ready;
-		// 请求用户权限
-		askUserPermission();
+		if(isPushNotificationSupported){
+			const serviceWorker = await navigator.serviceWorker.ready;
+			// 请求用户权限
+			askUserPermission();
+		}
 	};
 
 	// 将 modal-text 和 subscribe-btn 添加到 modal-content
@@ -149,41 +151,41 @@ if (window.matchMedia("(display-mode: standalone)").matches) {
 }
 
 window.addEventListener('message', function (event) {
-	// 检查消息是否来自我们期望的iframe
-	// 确保你替换了 'http://iframe-origin.com' 为iframe的实际源
-	// if (event.origin !== 'http://iframe-origin.com') return;
-	console.log(event.origin)
-	console.log('eventttttttttt', event)
-	// 处理接收到的消息
-	console.log('Received message from iframe:', event.data);
+		// 检查消息是否来自我们期望的iframe
+		// 确保你替换了 'http://iframe-origin.com' 为iframe的实际源
+		// if (event.origin !== 'http://iframe-origin.com') return;
+		console.log(event.origin)
+		console.log('eventttttttttt', event)
+		// 处理接收到的消息
+		console.log('Received message from iframe:', event.data);
 
-	try {
-		let json = JSON.parse(event.data)
+		try {
+			let json = JSON.parse(event.data)
 
-		if (json.type === messageType) {
-			console.log('message auth === ', json.data)
-			// 假设iframe的id是'myIframe'
-			// var iframe = _this.$refs.myElement
-			// var iframe = document.getElementById('fullScreenIframe');
-			var iframe = document.getElementsByClassName('iframe-box')[0]
-			var iframeWindow = iframe.contentWindow || iframe.contentDocument.defaultView;
+			if (json.type === messageType) {
+				console.log('message auth === ', json.data)
+				// 假设iframe的id是'myIframe'
+				// var iframe = _this.$refs.myElement
+				// var iframe = document.getElementById('fullScreenIframe');
+				var iframe = document.getElementsByClassName('iframe-box')[0]
+				var iframeWindow = iframe.contentWindow || iframe.contentDocument.defaultView;
 
 
-			let subId = localStorage.getItem(appId + '_' + cacheKey);
-			// 发送消息
-			let message = {
-				type: messageType,
-				subscriber: subId,
-				domain: baseUrl
-			};
-			console.log(message)
-			iframeWindow.postMessage(JSON.stringify(message),
-				'*'); // '*' 表示允许所有源接收消息，但在生产环境中，你应该指定具体的源
+				let subId = localStorage.getItem(appId + '_' + cacheKey);
+				// 发送消息
+				let message = {
+					type: messageType,
+					subscriber: subId,
+					domain: baseUrl
+				};
+				console.log(message)
+				iframeWindow.postMessage(JSON.stringify(message),
+					'*'); // '*' 表示允许所有源接收消息，但在生产环境中，你应该指定具体的源
+			}
+		} catch (e) {
+			console.error(e)
 		}
-	} catch (e) {
-		console.error(e)
-	}
-},
+	},
 	false);
 
 

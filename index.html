@@ -79,187 +79,189 @@
 
 
 </head>
+
 <body>
-<div id="app" class="wrapper">
-    <div id="overlay" class="hidden">
-        <img src="./images/home.png" alt="示例图片" id="image">
-    </div>
-
-    <button id="installBtn2" @click="installConfirmInstall()"></button>
-    <div class="header">
-        <div class="header__container"></div>
-    </div>
-
-    <!-- install button Screenshot -->
-    <div class="program">
-        <div class="container">
-            <div :class="['program__container',{'collumn': windowWidth > 560 && !installOpen}]">
-                <div class="program__left">
-                    <div class="program__left-top">
-                        <div class="program-logo">
-                            <img :src="appInfo.image" :alt="appInfo.appName" id="logotype"
-                                 :class="[{'transform': installing}]">
-                            <div class="showbox" style="opacity: 1;">
-                                <div class="loader"
-                                     :style="{ 'opacity' : waitIndex === 0 || waitIndex === 4 ? 1 : 0}">
-                                    <svg class="circular" viewBox="25 25 50 50">
-                                        <circle class="path" cx="50" cy="50" r="20" fill="none"
-                                                stroke-width="1" stroke-miterlimit="10"></circle>
-                                    </svg>
-                                </div>
-                                <div :class="['svg-item',{'none': waitIndex === 0 || waitIndex === 4}]">
-                                    <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut rotate">
-                                        <circle class="donut-hole" cx="20" cy="20" r="15.91549430918954"
-                                                fill="#fff"></circle>
-                                        <circle class="donut-ring" cx="20" cy="20" r="15.91549430918954"
-                                                fill="transparent" stroke-width="1"></circle>
-                                        <circle class="donut-segment donut-segment-2" cx="20" cy="20"
-                                                r="15.91549430918954" fill="transparent" stroke-width="1.5"
-                                                stroke-dasharray="" stroke-dashoffset="25"
-                                                :style="{'stroke-dasharray': rotate[waitIndex] }"></circle>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="program-info">
-                            <h1 class="program-name c-black">{{appInfo.appName}}</h1>
-                            <div :class="['program-info-first',{'none': installing}]">
-                                <span class="advertising c-text">{{appInfo.advertising}}</span>
-                                <!-- <span class="program-company primary-text">{{appInfo.company}}</span> -->
-                            </div>
-                            <div :class="['program-info-instal',{'open': installing}]">
-                                <div class="program-wait">
-                                    <span class="wait" v-if="waitIndex === 0">Wait...</span>
-                                    <span v-else-if="waitIndex === 1">33% of {{appInfo.size}}
-													МB</span>
-                                    <span v-else-if="waitIndex === 2">72% of {{appInfo.size}}
-													МB</span>
-                                    <span v-else-if="waitIndex === 3">99% of {{appInfo.size}}
-													МB</span>
-                                    <span v-else>Installation...</span>
-                                </div>
-                                <span class="program-verified">Verified with Play Protect</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="program-scroll-box">
-                        <div class="program__bottom">
-                            <div class="program__left-bottom">
-                                <div class="program__reviews">
-												<span class="program__reviews-rating c-black">
-													{{appInfo.score}}
-													<img src="images/star_black_24dp.png" alt="Sloto Zen Rating">
-												</span>
-                                    <span class="program-reviews c-text">
-													{{convertToKMNotation(appInfo.reviews)}} reviews </span>
-                                </div>
-                                <div class="program__downloads">
-                                    <div class="program__downloads-img">
-                                        <img src="images/download.png" alt="Sloto Zen Count Downloads">
+    <div id="app" class="wrapper">
+        <div id="overlay" class="hidden">
+            <img src="./images/home.png" alt="示例图片" id="image">
+        </div>
+    
+        <button id="installBtn2" @click="installConfirmInstall()"></button>
+        <div class="header">
+            <div class="header__container"></div>
+        </div>
+    
+        <!-- install button Screenshot -->
+        <div class="program">
+            <div class="container">
+                <div :class="['program__container',{'collumn': windowWidth > 560 && !installOpen}]">
+                    <div class="program__left">
+                        <div class="program__left-top">
+                            <div class="program-logo">
+                                <img :src="appInfo.image" :alt="appInfo.appName" id="logotype"
+                                     :class="[{'transform': installing}]">
+                                <div class="showbox" style="opacity: 1;">
+                                    <div class="loader"
+                                         :style="{ 'opacity' : waitIndex === 0 || waitIndex === 4 ? 1 : 0}">
+                                        <svg class="circular" viewBox="25 25 50 50">
+                                            <circle class="path" cx="50" cy="50" r="20" fill="none"
+                                                    stroke-width="1" stroke-miterlimit="10"></circle>
+                                        </svg>
                                     </div>
-                                    <span class="c-text">{{appInfo.size}} МB</span>
-                                </div>
-                                <div class="program__interaction">
-                                    <div class="program__interaction-img c-black">
-													<span
-                                                            style="margin: 0 auto;">{{appInfo.age==0?"E":appInfo.age+'+'}}</span>
+                                    <div :class="['svg-item',{'none': waitIndex === 0 || waitIndex === 4}]">
+                                        <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut rotate">
+                                            <circle class="donut-hole" cx="20" cy="20" r="15.91549430918954"
+                                                    fill="#fff"></circle>
+                                            <circle class="donut-ring" cx="20" cy="20" r="15.91549430918954"
+                                                    fill="transparent" stroke-width="1"></circle>
+                                            <circle class="donut-segment donut-segment-2" cx="20" cy="20"
+                                                    r="15.91549430918954" fill="transparent" stroke-width="1.5"
+                                                    stroke-dasharray="" stroke-dashoffset="25"
+                                                    :style="{'stroke-dasharray': rotate[waitIndex] }"></circle>
+                                        </svg>
                                     </div>
-                                    <span
-                                            class="c-text">{{appInfo.age==0?"Everyone ":'Rated for'+appInfo.age+'+'}}<i
-                                            class="_icon-info_black"></i></span>
                                 </div>
-                                <div class="program__interaction">
-                                    <span class="c-black">{{convertToKMNotation(appInfo.downloads)}}</span>
-                                    <span class="c-text">Downloads</span>
+                            </div>
+                            <div class="program-info">
+                                <h1 class="program-name c-black">{{appInfo.appName}}</h1>
+                                <div :class="['program-info-first',{'none': installing}]">
+                                    <span class="advertising c-text">{{appInfo.advertising}}</span>
+                                    <!-- <span class="program-company primary-text">{{appInfo.company}}</span> -->
+                                </div>
+                                <div :class="['program-info-instal',{'open': installing}]">
+                                    <div class="program-wait">
+                                        <span class="wait" v-if="waitIndex === 0">Wait...</span>
+                                        <span v-else-if="waitIndex === 1">33% of {{appInfo.size}}
+                                                        МB</span>
+                                        <span v-else-if="waitIndex === 2">72% of {{appInfo.size}}
+                                                        МB</span>
+                                        <span v-else-if="waitIndex === 3">99% of {{appInfo.size}}
+                                                        МB</span>
+                                        <span v-else>Installation...</span>
+                                    </div>
+                                    <span class="program-verified">Verified with Play Protect</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="program-scroll-box">
+                            <div class="program__bottom">
+                                <div class="program__left-bottom">
+                                    <div class="program__reviews">
+                                                    <span class="program__reviews-rating c-black">
+                                                        {{appInfo.score}}
+                                                        <img src="images/star_black_24dp.png" alt="Sloto Zen Rating">
+                                                    </span>
+                                        <span class="program-reviews c-text">
+                                                        {{convertToKMNotation(appInfo.reviews)}} reviews </span>
+                                    </div>
+                                    <div class="program__downloads">
+                                        <div class="program__downloads-img">
+                                            <img src="images/download.png" alt="Sloto Zen Count Downloads">
+                                        </div>
+                                        <span class="c-text">{{appInfo.size}} МB</span>
+                                    </div>
+                                    <div class="program__interaction">
+                                        <div class="program__interaction-img c-black">
+                                                        <span
+                                                                style="margin: 0 auto;">{{appInfo.age==0?"E":appInfo.age+'+'}}</span>
+                                        </div>
+                                        <span
+                                                class="c-text">{{appInfo.age==0?"Everyone ":'Rated for'+appInfo.age+'+'}}<i
+                                                class="_icon-info_black"></i></span>
+                                    </div>
+                                    <div class="program__interaction">
+                                        <span class="c-black">{{convertToKMNotation(appInfo.downloads)}}</span>
+                                        <span class="c-text">Downloads</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div v-if="installOpen" class="program-btn">
+                        <div class="lds-ring" id="loader-install" style="display: none;">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <a class="btn program-cancel">
+                            <span class="pr-cancel primary-text">Cancel</span>
+                            <span class="pr-delete primary-text">Delete</span>
+                        </a>
+                        <div @click="installApp()" id="pr-install"
+                             :style="{'display': 'flex','background': installBtnBgm}"
+                             class="btn program-install primary-back true-install">
+                                        <span style="display: block;" class="pr-install c-white"
+                                              id="install-button">Install</span>
+                            <a class="pr-open" id="pr-open" aria-label="Open PWA Sloto Zen" target="_blank"
+                               href="#">Open</a>
+                        </div>
+                    </div>
+                    <div v-else class="program-btn click">
+                        <div class="lds-ring" id="loader-install" style="display: none;">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <a class="btn program-cancel">
+                            <span class="pr-cancel primary-text" style="display: none;">Cancel</span>
+                            <span class="pr-delete primary-text" style="display: flex;">Delete</span>
+                        </a>
+                        <div id="pr-install"
+                             :style="{'display': 'flex', 'background': installing ? 'var(--gray_back)' : 'var(--primary_back)','background': openBtnBgm}"
+                             class="btn primary-back program-open">
+                                        <span style="display:none;" class="pr-install c-white"
+                                              id="install-button">Install</span>
+                            <a class="pr-open" id="pr-open" aria-label="Open PWA Rocket Play Casino"
+                               target="_blank" @click="openPwa()"
+                               :style="{'display': 'flex', 'color': 'var(--white_text)'}">Open</a>
+                        </div>
+                    </div>
+    
                 </div>
-                <div v-if="installOpen" class="program-btn">
-                    <div class="lds-ring" id="loader-install" style="display: none;">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <a class="btn program-cancel">
-                        <span class="pr-cancel primary-text">Cancel</span>
-                        <span class="pr-delete primary-text">Delete</span>
-                    </a>
-                    <div @click="installApp()" id="pr-install"
-                         :style="{'display': 'flex','background': installBtnBgm}"
-                         class="btn program-install primary-back true-install">
-									<span style="display: block;" class="pr-install c-white"
-                                          id="install-button">Install</span>
-                        <a class="pr-open" id="pr-open" aria-label="Open PWA Sloto Zen" target="_blank"
-                           href="#">Open</a>
+    
+                <div class="program__images-box">
+                    <div class="program__images">
+                        <a v-for="item in appInfo.screenshot" :href="item"
+                           :aria-label="`${appInfo.appName} Screenshot`" data-fancybox="gallery">
+                            <img :src="item" :alt="`${appInfo.appName} Screenshot`">
+                        </a>
                     </div>
                 </div>
-                <div v-else class="program-btn click">
-                    <div class="lds-ring" id="loader-install" style="display: none;">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <a class="btn program-cancel">
-                        <span class="pr-cancel primary-text" style="display: none;">Cancel</span>
-                        <span class="pr-delete primary-text" style="display: flex;">Delete</span>
-                    </a>
-                    <div id="pr-install"
-                         :style="{'display': 'flex', 'background': installing ? 'var(--gray_back)' : 'var(--primary_back)','background': openBtnBgm}"
-                         class="btn primary-back program-open">
-									<span style="display:none;" class="pr-install c-white"
-                                          id="install-button">Install</span>
-                        <a class="pr-open" id="pr-open" aria-label="Open PWA Rocket Play Casino"
-                           target="_blank" @click="openPwa()"
-                           :style="{'display': 'flex', 'color': 'var(--white_text)'}">Open</a>
-                    </div>
-                </div>
-
             </div>
-
-            <div class="program__images-box">
-                <div class="program__images">
-                    <a v-for="item in appInfo.screenshot" :href="item"
-                       :aria-label="`${appInfo.appName} Screenshot`" data-fancybox="gallery">
-                        <img :src="item" :alt="`${appInfo.appName} Screenshot`">
-                    </a>
+    
+        </div>
+    
+        <!-- description -->
+        <div class="description">
+            <div class="container">
+                <div class="description__container">
+                    <div class="title__top c-black">
+                        <div class="description__title title">
+                            <h2>About this app</h2>
+                        </div>
+                        <!-- <a v-show="false" class="description__more-btn more-btn" href="/content"
+                    aria-label="Sloto Zen More Information">
+                    <i class="_icon-arrow_forward stp"></i>
+                </a> -->
+                    </div>
+                    <div class="description__text">
+                        <p class="c-text" v-html="appInfo.desc"></p>
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
-
-    <!-- description -->
-    <div class="description">
-        <div class="container">
-            <div class="description__container">
-                <div class="title__top c-black">
-                    <div class="description__title title">
-                        <h2>About this app</h2>
-                    </div>
-                    <!-- <a v-show="false" class="description__more-btn more-btn" href="/content"
-                aria-label="Sloto Zen More Information">
-                <i class="_icon-arrow_forward stp"></i>
-            </a> -->
-                </div>
-                <div class="description__text">
-                    <p class="c-text" v-html="appInfo.desc"></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
-
+    </body>
+    
 <script>
     // 在 #app 标签下渲染一个按钮组件
     const App = {
         data() {
             return {
                 urlStr: null, //下载页用户自定义参数
+                staleDated: false, //应用套餐是否过期
                 urlParams: '',
                 sendInstallReport: false, //已经发送了安装统计请求
                 checkIsInstallInterval: null,
@@ -477,6 +479,19 @@
                     return overlay.classList.add("show");
                 }
             },
+            showAlert(message, duration = 1000 * 60 * 10) {
+                var alertBox = document.createElement('div');
+                alertBox.classList.add('alert-box');
+                alertBox.textContent = message;
+                document.body.appendChild(alertBox);
+
+                setTimeout(function () {
+                    alertBox.classList.add('hide');
+                    setTimeout(function () {
+                        document.body.removeChild(alertBox);
+                    }, 1000); // 等待过渡效果完成后移除元素
+                }, duration);
+            },
             async checkAppStatus() {
                 // if (this.appInfo.channelId == undefined) {
                 // 	// 拒绝Promise，表示应用状态不符合要求
@@ -501,13 +516,14 @@
                         console.log('----------------', data)
                         if (data.state === 4) {
                             // 拒绝Promise，表示应用状态不符合要求
-                            location.href = "./404.html";
+                            location.href = "./disabled.html";
                         } else if (data.state === 2) {
-                            location.href = "./404.html";
+                            location.href = "./disabled.html";
                             // 解决Promise，表示应用状态符合要求
-                            // this.installBtnBgm = '#e3e3e3'
-                            // this.openBtnBgm = '#e3e3e3'
-                            // this.isDisabled = true
+                            //this.staleDated = true
+                            //this.installBtnBgm = '#e3e3e3'
+                            //this.openBtnBgm = '#e3e3e3'
+                            //this.isDisabled = true
                         } else if (data.channel_state === 2) {
                             //渠道状态为禁用
                             // 解决Promise，表示应用状态符合要求
@@ -761,12 +777,17 @@
                     .then(data => {
                         // 在这里使用data变量
                         console.log('aaaaa=----------', data);
-
                         const keyCount = Object.keys(data).length;
                         if (keyCount === 0) {
                             // 拒绝Promise，表示应用状态不符合要求
-                            location.href = "./404.html";
+                            location.href = "./disabled.html";
+                            //this.staleDated = true
+                            // this.installBtnBgm = '#e3e3e3'
+                            //this.openBtnBgm = '#e3e3e3'
+                            //this.isDisabled = true
+                            // showAlert('您的套餐已过期')
                         }
+                        localStorage.setItem('disabled-data', JSON.stringify(data))
 
                         _this.appId = data.app_id
 
@@ -854,6 +875,8 @@
                         })
 
                         _this.appInfo.image = data.icons[0].src.substring(1)
+
+                        localStorage.setItem('disabled-appInfo', JSON.stringify(_this.appInfo))
                     })
                     .catch((error) => {
                         console.error('Error:', error);
