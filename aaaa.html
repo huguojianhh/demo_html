@@ -2,18 +2,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/modal.css" />
 
-<body>
+<body style="width: 100%;height: 100%;">
 
     <iframe src="https://www.7.bet"></iframe>
 
-    <div class="alert-box" v-if="showDisabedAlert">
-        <div class="close-btn">
-            <div>
-                <img src="images/btn-close.svg" />
+    <div style="width: 100%;height: 100%;position: absolute;">
+        <div class="alert-box" v-if="showDisabedAlert">
+            <div class="close-btn">
+                <div>
+                    <img src="images/btn-close.svg" />
+                </div>
             </div>
+            <div class="content">下载次数已达上限</div>
         </div>
-        <div class="content">下载次数已达上限</div>
     </div>
+    
 </body>
 
 <script>

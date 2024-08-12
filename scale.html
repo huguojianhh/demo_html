@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scale Example</title>
+    <style>
+        #myElement {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: transform 0.5s ease;
+            /* 可选：添加平滑的过渡效果 */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="myElement"></div>
+
+    <script>
+        const realWidth = 100;
+        const realHeight = 100;
+        const currentWidth = 200; // 假设这是当前的宽度  
+        const currentHeight = 150; // 假设这是当前的高度  
+
+        const widthScale = currentWidth / realWidth;
+        const heightScale = currentHeight / realHeight;
+        const transform = `scale(${widthScale},${heightScale})`;
+
+        document.getElementById('myElement').style.transform = transform;
+
+
+        console.log(paramObj('https://baidu.com?id=1&id=2'))
+        function paramObj(url) {
+            const search = url.split('?')[1];
+            if (!search) {
+                return {};
+            }
+
+            const params = new URLSearchParams(search);
+            const result = {};
+
+            for (let [key, value] of params.entries()) {
+                // 如果同一个键有多个值，则将它们收集到一个数组中  
+                if (result[key]) {
+                    if (Array.isArray(result[key])) {
+                        result[key].push(value);
+                    } else {
+                        result[key] = [result[key], value];
+                    }
+                } else {
+                    result[key] = value;
+                }
+            }
+
+            return result;
+        }
+    </script>
+
+</body>
+
+</html>
